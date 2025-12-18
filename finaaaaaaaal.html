@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilton's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter'], heading: ['Poppins'] },
+                    colors: {
+                        'brand-primary': '#10b981',
+                        'brand-secondary': '#34d399',
+                        'accent': '#6366f1',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter'; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins'; }
+        
+        .page-view { display: none; opacity: 0; transition: opacity 0.3s ease-in; animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .page-view:target { display: block; }
+        
+        #home { display: block; }
+        .page-view:target ~ #home { display: none; }
+        
+        .nav-link { position: relative; color: #475569; transition: color 0.3s ease; }
+        .nav-link:hover { color: #10b981; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #10b981; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.9rem; }
+        th { background-color: #10b981; color: white; padding: 0.75rem; text-align: left; font-weight: 600; }
+        td { border-bottom: 1px solid #e5e7eb; padding: 0.75rem; vertical-align: top; }
+        tr:nth-child(even) { background-color: #f9fafb; }
+        .table-container { overflow-x: auto; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin: 1.5rem 0; border: 1px solid #e5e7eb; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between overflow-x-auto no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <div class="w-8 h-8 bg-gradient-to-br from-brand-primary to-accent rounded-lg flex items-center justify-center text-white font-bold text-xl">E</div>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight whitespace-nowrap">Emilton's Portfolio</h1>
+            </div>
+            <div class="flex space-x-6 text-sm font-semibold">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about-me" class="nav-link">About Me</a>
+                <a href="#portfolio-list" class="nav-link">Portfolios</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 min-h-screen">
+        <section id="about-me" class="page-view">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 mt-8">
+                <div class="bg-brand-primary h-32 w-full absolute top-0 left-0 z-0 opacity-10"></div>
+                <div class="p-8 lg:p-16 relative z-10">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-8">About <span class="text-brand-primary">Me</span></h2>
+                    
+                    <div class="flex flex-col lg:flex-row gap-12 items-start">
+                        <div class="flex-shrink-0 w-full lg:w-1/3 relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                            <img src="5581bbf5-889f-44e4-b546-8e92cd70c08a.jpg" alt="Emilton Bontia" class="relative w-full h-auto rounded-xl shadow-2xl object-cover transform transition duration-500 hover:scale-[1.02]">
+                        </div>
+                        
+                        <div class="lg:w-2/3 space-y-6 text-lg text-slate-600 leading-relaxed">
+                            <p class="text-2xl font-bold text-slate-800">
+                                Hello! I am <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-accent">Emilton Bontia</span>.
+                            </p>
+                            <p>
+                                I am 19 and currently a first-year Computer Science (BSCS) student at the University of San Carlos.
+                            </p>
+                            
+                            <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-brand-primary my-6">
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">My Motivation</h3>
+                                <p>
+                                    While the career prospects are attractive, my true drive comes from a lifelong fascination with technology—understanding the "how" and "why" behind the screen. As an avid gamer, my ultimate goal is to become a <strong>Game Developer or Tester</strong>.
+                                </p>
+                            </div>
+                            
+                            <p>
+                                My academic background includes taking the STEM strand during Senior High School with a technology elective. This introduced me to the <strong>CFP course</strong>, where I gained my first hands-on experience with C programming.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-list" class="page-view">
+            <div class="mt-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">My <span class="text-brand-primary">Portfolios</span></h2>
+                    <p class="text-xl text-slate-500 max-w-2xl mx-auto">A curated collection of my academic reports, research, and reflections on Computer Science.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="#port-1" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-green-400 to-emerald-600"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Report</span>
+                                <span class="text-slate-400 text-sm font-mono">#01</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-brand-primary transition-colors">CS Disciplines & Majors</h3>
+                            <p class="text-slate-500 mb-6">A deep dive into the five majors of computing and an exploration of why the "coding only" stereotype is misleading.</p>
+                            <span class="inline-flex items-center text-brand-primary font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#port-2" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-blue-400 to-indigo-600"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Analysis</span>
+                                <span class="text-slate-400 text-sm font-mono">#02</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">Data, Information & IS</h3>
+                            <p class="text-slate-500 mb-6">Distinguishing raw data from meaningful information and exploring information systems.</p>
+                            <span class="inline-flex items-center text-blue-600 font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#port-3" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-purple-400 to-pink-600"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Math</span>
+                                <span class="text-slate-400 text-sm font-mono">#03</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-purple-600 transition-colors">Number Systems</h3>
+                            <p class="text-slate-500 mb-6">Exploring the fundamental languages of computers: Binary, Octal, Decimal, and Hexadecimal.</p>
+                            <span class="inline-flex items-center text-purple-600 font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#port-4" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-orange-400 to-red-500"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Hardware</span>
+                                <span class="text-slate-400 text-sm font-mono">#04</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-orange-600 transition-colors">Hardware & Software</h3>
+                            <p class="text-slate-500 mb-6">The essential relationship between physical components and the software that drives them.</p>
+                            <span class="inline-flex items-center text-orange-600 font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#port-5" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-yellow-400 to-amber-600"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Hardware</span>
+                                <span class="text-slate-400 text-sm font-mono">#05</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-yellow-600 transition-colors">Motherboards</h3>
+                            <p class="text-slate-500 mb-6">Understanding Form Factors (ATX, Micro-ATX, Mini-ITX) and PC design.</p>
+                            <span class="inline-flex items-center text-yellow-600 font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#port-6" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+                        <div class="h-3 bg-gradient-to-r from-teal-400 to-cyan-600"></div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Concepts</span>
+                                <span class="text-slate-400 text-sm font-mono">#06</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-teal-600 transition-colors">Types of Computers</h3>
+                            <p class="text-slate-500 mb-6">Classifications by scale and purpose: from Microcomputers to Supercomputers.</p>
+                            <span class="inline-flex items-center text-teal-600 font-semibold group-hover:underline">Read More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-1" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-brand-primary font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #1: Computer Science</h2>
+                <h3 class="text-2xl text-emerald-600 font-semibold mb-8">As a Discipline and Majors</h3>
+                
+                <div class="mb-10">
+                    <a href="%5BBONTIA%5D-G%232-CIS1102N-Portfolio%231.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+
+                <div class="bg-slate-50 border-l-4 border-emerald-500 p-6 rounded-r-xl mb-12">
+                    <p class="text-lg text-slate-700 italic mb-2">"Computer science is fairly a new field, a new species among the sciences." — Loui, 1995</p>
+                    <p class="text-slate-600">Computer science is the systematic study of algorithmic processes that describe and transform information. It employs theory, experimentation, and system design to solve complex problems through automation.</p>
+                </div>
+
+                <h4 class="text-2xl font-bold text-slate-800 mb-6">The 5 Computing Disciplines</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <div class="p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-emerald-200 transition-colors">
+                        <div class="text-3xl mb-4">📂</div>
+                        <h5 class="text-lg font-bold text-slate-800">Information Systems (IS)</h5>
+                        <p class="text-slate-600 mt-2 text-sm">Focuses on the design, development, use, and impact of ICT within organizations, integrating technology with business management.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-emerald-200 transition-colors">
+                        <div class="text-3xl mb-4">⚙️</div>
+                        <h5 class="text-lg font-bold text-slate-800">Information Technology (IT)</h5>
+                        <p class="text-slate-600 mt-2 text-sm">Emphasizes practical skills such as system administration, networking, security, and web technologies maintenance.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-emerald-200 transition-colors">
+                        <div class="text-3xl mb-4">🏗️</div>
+                        <h5 class="text-lg font-bold text-slate-800">Software Engineering</h5>
+                        <p class="text-slate-600 mt-2 text-sm">The disciplined application of engineering principles to the design, development, and maintenance of reliable software systems.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-emerald-200 transition-colors">
+                        <div class="text-3xl mb-4">🔌</div>
+                        <h5 class="text-lg font-bold text-slate-800">Computer Engineering</h5>
+                        <p class="text-slate-600 mt-2 text-sm">Combines electrical engineering and computer science to develop hardware and the software that runs on it.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-emerald-200 transition-colors">
+                        <div class="text-3xl mb-4">📊</div>
+                        <h5 class="text-lg font-bold text-slate-800">Data Science</h5>
+                        <p class="text-slate-600 mt-2 text-sm">An interdisciplinary field that extracts insights from complex data using statistics, mathematics, and computer science.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold text-emerald-800 mb-4">My Reflection</h4>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                        "Programming without these qualities is just coding, not computer science."
+                    </p>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        As a first-year student, I recognize that subjects like Mathematics and Communication are essential. A successful computer scientist must acquire multiple skills, including strong problem-solving and communication. By embracing the diversity of skills within computer science, we evolve from mere coders into comprehensive problem-solvers and innovators.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-2" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-blue-600 font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #2: Data, Information & IS</h2>
+                <h3 class="text-2xl text-blue-600 font-semibold mb-8">Concepts and Support Systems</h3>
+
+                <div class="mb-10">
+                    <a href="%5BBONTIA%5D-G%232-CIS1102N-Portfolio%232.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100">
+                        <h4 class="text-xl font-bold text-yellow-800 mb-3">Data (The Raw Facts)</h4>
+                        <ul class="list-disc list-inside text-yellow-900/80 space-y-2 text-sm">
+                            <li>Raw, unorganized facts (symbols, numbers).</li>
+                            <li>Factual but has no meaning until processed.</li>
+                            <li>Can be <strong>Qualitative</strong> (descriptive) or <strong>Quantitative</strong> (numerical).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100">
+                        <h4 class="text-xl font-bold text-green-800 mb-3">Information (The Meaning)</h4>
+                        <ul class="list-disc list-inside text-green-900/80 space-y-2 text-sm">
+                            <li>Data that has been <strong>transformed</strong> and given meaning.</li>
+                            <li>The output of data processing.</li>
+                            <li>Allows sharing knowledge and is meaningful to the receiver.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Information</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Always factual.</td><td>Can be wrong (if processed incorrectly).</td></tr>
+                            <tr><td>Raw information.</td><td>Processed Data that is meaningful.</td></tr>
+                            <tr><td>Qualitative or Quantitative.</td><td>Presented in words, numbers, images, or documents.</td></tr>
+                            <tr><td>Independent.</td><td>Dependent on data.</td></tr>
+                            <tr><td>No inherent meaning by itself.</td><td>Has meaning because it is structured and interpreted.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold text-slate-800 mb-6">Support Systems in IS</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">TPS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Transaction Processing</p>
+                            <p class="text-sm text-slate-600">Processes daily transactions like sales and payroll. Used in banking and retail.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">MIS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Management Information</p>
+                            <p class="text-sm text-slate-600">Bridges data and tactical decisions. Provides performance monitoring reports.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">DSS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Decision Support</p>
+                            <p class="text-sm text-slate-600">Solves non-routine problems using analytics. Essential for risk management.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">ESS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Executive Support</p>
+                            <p class="text-sm text-slate-600">Tailored for senior management strategy. Used for competitor analysis.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">OAS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Office Automation</p>
+                            <p class="text-sm text-slate-600">Optimizes routine tasks like email and documentation to streamline workflow.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                            <h5 class="font-bold text-blue-600 mb-2">BIS</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-2">Business Intelligence</p>
+                            <p class="text-sm text-slate-600">Transforms data into competitive insights and predictive analytics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold text-blue-800 mb-4">My Reflection</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        This portfolio clarified the process of transforming raw data into actionable decisions. A key takeaway was learning to distinguish neutral data from meaningful information—an essential skill for avoiding errors. I learned that information systems are integrated frameworks of <strong>hardware, people, and processes</strong> embedded within organizations. Studying support systems such as TPS and DSS demonstrated how technology scales to meet different levels of organizational responsibility.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-3" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-purple-600 font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #3: Number Systems</h2>
+                <h3 class="text-2xl text-purple-600 font-semibold mb-8">Base Systems and Conversions</h3>
+
+                <div class="mb-10">
+                    <a href="%5BBONTIA%5D-G%232-CIS1102N-Portfolio%233.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+                
+                <!-- Table: Number System Types -->
+                <div class="mb-10">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">2. Types of Number Systems (Base 1-16)</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Base</th><th>Name</th><th>Digits</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Unary</td><td>1</td></tr>
+                                <tr><td>2</td><td>Binary</td><td>0-1</td></tr>
+                                <tr><td>8</td><td>Octal</td><td>0-7</td></tr>
+                                <tr><td>10</td><td>Decimal</td><td>0-9</td></tr>
+                                <tr><td>16</td><td>Hexadecimal</td><td>0-F</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 text-center">
+                        <h5 class="text-xl font-bold text-purple-800">Decimal</h5>
+                        <p class="text-sm font-mono text-purple-600 mb-2">Base 10</p>
+                        <p class="text-xs text-purple-900/70">Digits: 0-9</p>
+                        <p class="text-xs mt-2">Human standard.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 text-center">
+                        <h5 class="text-xl font-bold text-purple-800">Binary</h5>
+                        <p class="text-sm font-mono text-purple-600 mb-2">Base 2</p>
+                        <p class="text-xs text-purple-900/70">Digits: 0, 1</p>
+                        <p class="text-xs mt-2">Computer language (Bits).</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 text-center">
+                        <h5 class="text-xl font-bold text-purple-800">Octal</h5>
+                        <p class="text-sm font-mono text-purple-600 mb-2">Base 8</p>
+                        <p class="text-xs text-purple-900/70">Digits: 0-7</p>
+                        <p class="text-xs mt-2">Shorter binary representation.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 text-center">
+                        <h5 class="text-xl font-bold text-purple-800">Hexadecimal</h5>
+                        <p class="text-sm font-mono text-purple-600 mb-2">Base 16</p>
+                        <p class="text-xs text-purple-900/70">Digits: 0-9, A-F</p>
+                        <p class="text-xs mt-2">Crucial for color codes & memory.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 mb-12">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4">Conversion Example: Decimal 150</h4>
+                    <ul class="space-y-3 font-mono text-sm text-slate-600">
+                        <li class="flex justify-between border-b border-slate-200 pb-2">
+                            <span>Decimal:</span>
+                            <span>\( 1 \cdot 10^2 + 5 \cdot 10^1 + 0 \cdot 10^0 = 150 \)</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-200 pb-2">
+                            <span>Binary:</span>
+                            <span>10010110</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-200 pb-2">
+                            <span>Octal:</span>
+                            <span>226</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Hexadecimal:</span>
+                            <span>96</span>
+                        </li>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>System</th><th>Representation</th><th>Calculation Breakdown</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Decimal</td><td>150</td><td>1*10^2 + 5*10^1 + 0*10^0 = 100 + 50 + 0</td></tr>
+                                <tr><td>Binary</td><td>10010110</td><td>1*2^7 + 1*2^4 + 1*2^2 + 1*2^1 = 128 + 16 + 4 + 2</td></tr>
+                                <tr><td>Octal</td><td>226</td><td>2*8^2 + 2*8^1 + 6*8^0 = 128 + 16 + 6</td></tr>
+                                <tr><td>Hexadecimal</td><td>96</td><td>9*16^1 + 6*16^0 = 144 + 6</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-fuchsia-50 p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold text-purple-800 mb-4">My Reflection</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        This portfolio emphasized the importance of looking beyond the decimal system. The core concept—that number systems represent values using a specific base—was reinforced. It solidified my understanding that binary is the foundational language of computers, and it highlighted the practical utility of octal and hexadecimal as concise representations that bridge binary and human-readable formats.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-4" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-orange-600 font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #4: Hardware & Software</h2>
+                <h3 class="text-2xl text-orange-600 font-semibold mb-8">The Essential Partnership</h3>
+
+                <div class="mb-10">
+                    <a href="[BONTIA]-G2-CIS1102N-Portfolio4.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-orange-600 hover:bg-orange-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100">
+                        <h4 class="text-xl font-bold text-yellow-800 mb-4">Hardware (The Body)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <h5 class="font-bold text-yellow-900">Processing</h5>
+                                <p class="text-sm text-yellow-900/80">CPU (Brain), GPU (Visuals), Motherboard (Connector).</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-yellow-900">Storage</h5>
+                                <p class="text-sm text-yellow-900/80">RAM (Short-term), SSD/HDD (Long-term).</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-yellow-900">I/O Devices</h5>
+                                <p class="text-sm text-yellow-900/80">Input (Keyboard, Mouse) & Output (Monitor, Printer).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="text-xl font-bold text-blue-800 mb-4">Software (The Mind)</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <h5 class="font-bold text-blue-900">System Software</h5>
+                                <p class="text-sm text-blue-900/80">Manages hardware. Includes OS (Windows/macOS), Drivers, and Utilities.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-blue-900">Application Software</h5>
+                                <p class="text-sm text-blue-900/80">Programs for users. Examples: Chrome, Word, Games, Photoshop.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold text-orange-800 mb-4">My Reflection</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        I initially thought of a computer as a single "magic box." The key lesson was that hardware and software form an interdependent partnership. Understanding the roles of components—CPU as the "brain" and RAM as "short-term memory"—clarified performance trade-offs. Distinguishing the operating system from applications explained how programs run in practice. Examples from healthcare and education demonstrated how these systems form a pervasive digital ecosystem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-5" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-yellow-600 font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #5: Motherboards</h2>
+                <h3 class="text-2xl text-yellow-600 font-semibold mb-8">Form Factors and Design</h3>
+
+                <div class="mb-10">
+                    <a href="[BONTIA]-G2-CIS1102N-Portfolio5.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-yellow-600 hover:bg-yellow-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+
+                <div class="mb-10">
+                    <p class="text-lg text-slate-700">The motherboard is the foundational backbone connecting all hardware. The <strong>Form Factor</strong> dictates size, layout, and compatibility.</p>
+                </div>
+
+                <!-- Table: Motherboard Form Factors -->
+                <div class="mb-10">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Comparison of Motherboard Form Factors</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr><th>Motherboard</th><th>Build Type</th><th>CPU/RAM</th><th>Expansion</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Standard ATX</td><td>Modern Desktop</td><td>1 Socket, 2-4 slots</td><td>3-7 PCIe slots</td></tr>
+                                <tr><td>Micro-ATX</td><td>Modern Desktop (Compact)</td><td>1 Socket, 2-4 slots</td><td>1-4 PCIe slots</td></tr>
+                                <tr><td>Mini-ITX</td><td>Small Form Factor (SFF)</td><td>1 Socket, 2 slots</td><td>1 PCIe slot</td></tr>
+                                <tr><td>Extended-ATX (E-ATX)</td><td>Workstation/Server</td><td>1-2 Sockets, 4-8+ slots</td><td>4-8 PCIe slots</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-yellow-300 transition-colors">
+                        <h5 class="text-lg font-bold text-slate-800 mb-2">Standard ATX</h5>
+                        <p class="text-xs text-slate-400 font-mono mb-3">12 x 9.6 inches</p>
+                        <p class="text-sm text-slate-600">The default choice. Offers the most expansion (3-7 PCIe slots, 4 RAM slots). Ideal for gamers and future-proofing.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-yellow-300 transition-colors">
+                        <h5 class="text-lg font-bold text-slate-800 mb-2">Micro-ATX</h5>
+                        <p class="text-xs text-slate-400 font-mono mb-3">9.6 x 9.6 inches</p>
+                        <p class="text-sm text-slate-600">The middle ground. Shorter than ATX with fewer PCIe slots (1-4). Cost-effective for budget builds.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-yellow-300 transition-colors">
+                        <h5 class="text-lg font-bold text-slate-800 mb-2">Mini-ITX</h5>
+                        <p class="text-xs text-slate-400 font-mono mb-3">6.7 x 6.7 inches</p>
+                        <p class="text-sm text-slate-600">The specialist. Minimal expansion (1 PCIe, 2 RAM slots). Exclusively for Small Form Factor (SFF) builds.</p>
+                    </div>
+                </div>
+                
+                <h4 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">Enthusiast & Legacy Types</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                        <h5 class="text-md font-bold text-slate-800">Extended-ATX (E-ATX)</h5>
+                        <p class="text-xs text-slate-600 mt-1">Larger than ATX. Used for workstations/servers with dual CPUs.</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-200">
+                        <h5 class="text-md font-bold text-slate-800">AT (Legacy)</h5>
+                        <p class="text-xs text-slate-600 mt-1">The large predecessor to ATX (1980s-90s).</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-200">
+                        <h5 class="text-md font-bold text-slate-800">LPX (Legacy Slim)</h5>
+                        <p class="text-xs text-slate-600 mt-1">Used a riser card for slots. Slim profile.</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-200">
+                        <h5 class="text-md font-bold text-slate-800">Mini-ATX / Pico BTX</h5>
+                        <p class="text-xs text-slate-600 mt-1">Obsolete compact standards.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold text-yellow-800 mb-4">My Reflection</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        This portfolio demonstrated that the motherboard functions as the central nervous system of a PC. The primary takeaway was understanding form factors. Choosing between ATX, Micro-ATX, and Mini-ITX involves trade-offs between size and features; knowing the specific dimensions and limitations clarified how physical constraints influence a computer's capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="port-6" class="page-view">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 mt-8 border border-slate-100">
+                <a href="#portfolio-list" class="text-slate-500 hover:text-teal-600 font-semibold mb-8 flex items-center transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to All Projects
+                </a>
+                
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-2">Portfolio #6: Types of Computers</h2>
+                <h3 class="text-2xl text-teal-600 font-semibold mb-8">Scale and Purpose</h3>
+
+                <div class="mb-10">
+                    <a href="[BONTIA]-G2-CIS1102N-Portfolio6.pdf" target="_blank" class="inline-flex items-center px-5 py-3 border border-transparent text-sm font-medium rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        View Original PDF
+                    </a>
+                </div>
+
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">1. High-Performance Tier</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                                <h5 class="text-lg font-bold text-purple-800">Supercomputers</h5>
+                                <p class="text-sm text-purple-900/80 mb-2">Massive parallel processing for complex science.</p>
+                                <p class="text-xs text-slate-500">Example: Frontier (Climate modeling, Nuclear simulation).</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                                <h5 class="text-lg font-bold text-blue-800">Mainframes</h5>
+                                <p class="text-sm text-blue-900/80 mb-2">High-volume transaction processing and reliability.</p>
+                                <p class="text-xs text-slate-500">Example: IBM z16 (Banking, Insurance claims).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">2. Business Backbone</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                <h5 class="text-lg font-bold text-slate-800">Servers</h5>
+                                <p class="text-sm text-slate-600 mb-2">Serves data and files to clients over a network (24/7).</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                <h5 class="text-lg font-bold text-slate-800">Mini Computers</h5>
+                                <p class="text-sm text-slate-600 mb-2">Midrange servers for mission-critical apps (Hospital records).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">3. End-User Machines</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                                <h5 class="text-lg font-bold text-orange-800">Workstations</h5>
+                                <p class="text-sm text-orange-900/80 mb-2">High-performance PCs for rendering, CAD, and data science.</p>
+                            </div>
+                            <div class="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
+                                <h5 class="text-lg font-bold text-emerald-800">Microcomputers</h5>
+                                <p class="text-sm text-emerald-900/80 mb-2">General purpose: Desktops, Laptops, Phones. Optimized for daily tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Table: Types of Computers Overview -->
+                    <div class="mb-10">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">1. Types of Computers: Specifications & Use</h4>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr><th>Type</th><th>Example</th><th>Specs (CPU/RAM)</th><th>Field of Use</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Supercomputer</td><td>Frontier (OLCF)</td><td>Thousands of Cores</td><td>Scientific research</td></tr>
+                                    <tr><td>Mainframe</td><td>IBM z16</td><td>High-throughput</td><td>Banking, insurance</td></tr>
+                                    <tr><td>Server</td><td>Dell PowerEdge</td><td>High core count</td><td>Hosting websites</td></tr>
+                                    <tr><td>Workstation</td><td>HP Z-Series</td><td>High-end CPU/GPU</td><td>3D animation, CAD</td></tr>
+                                    <tr><td>Micro Computer</td><td>Dell XPS</td><td>Standard Specs</td><td>Home, office, gaming</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="home">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 mt-8 relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-primary opacity-5 rounded-bl-full"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent opacity-5 rounded-tr-full"></div>
+                
+                <div class="p-12 lg:p-24 text-center relative z-10">
+                    <h2 class="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                        Welcome to My <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-accent">Digital Showcase</span>
+                    </h2>
+                    <p class="text-xl lg:text-2xl text-slate-500 mb-12 max-w-3xl mx-auto font-light">
+                        The central hub for my journey in Computer Science, featuring academic portfolios, technical explorations, and design projects.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left mb-16">
+                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-md transition-shadow">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🚀</span> The Website's Content
+                            </h3>
+                            <p class="text-slate-600">This website features my current portfolio and will expand to include future projects as I advance in the field of Computer Science. Stay tuned.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-md transition-shadow">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                                <span class="text-2xl mr-3">💡</span> The Website's Purpose
+                            </h3>
+                            <p class="text-slate-600">This platform showcases the portfolios submitted for the CIS 1102N midterm assessment. It documents my understanding of core computing concepts—from hardware architecture to number systems—and reflects the academic standards of the program.</p>
+                        </div>
+                    </div>
+
+                    <a href="#portfolio-list" class="inline-flex items-center px-8 py-4 text-lg font-bold rounded-full text-white bg-gradient-to-r from-brand-primary to-brand-secondary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        Explore My Portfolios
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="bg-white border-t border-slate-200 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <p class="text-slate-500 mb-4">&copy; 2025 Emilton Bontia BSCS.</p>
+            <p class="text-sm text-slate-400">Designed with HTML, Tailwind CSS, and <span class="text-red-400">♥</span></p>
+        </div>
+    </footer>
+</body>
+</html>
